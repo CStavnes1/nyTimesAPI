@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -13,7 +17,7 @@
     <main>
         <div>
             <h2>Search Parameters</h2>
-            <form role="form">
+            <form role="form" id="searchform">
                 <div>
                     <h3>Search Term:</h3>
                     <input id="searchTerm" class="formField" type="text">
@@ -21,11 +25,11 @@
                 <div>
                     <h3>Number of Records</h3>
                     <label></label>
-                    <input type="radio" id="choice1" class="radioButton" name="searchNumber formField" value="1">
+                    <input type="radio" id="choice1" class="radioButton" name="searchNumber" value="1">
                     <label for="choice1">1</label>
-                    <input type="radio" id="choice2" class="radioButton" name="searchNumber formField" value="5">
+                    <input type="radio" id="choice2" class="radioButton" name="searchNumber" value="5">
                     <label for="choice1">5</label>
-                    <input type="radio" id="choice3" class="radioButton" name="searchNumber formField" value="10">
+                    <input type="radio" id="choice3" class="radioButton" name="searchNumber" value="10">
                     <label for="choice1">10</label>
                 </div>
                 <div>
@@ -37,6 +41,10 @@
                     <input id="endYear" class="formField" type="text">
                 </div>
             </form>
+            <div id="formButtons">
+                <button id="searchButton">Search</button>
+                <button id="clearButton">Clear Results</button>
+            </div>
         </div>
         <div>
             <h2>Top Articles</h2>
