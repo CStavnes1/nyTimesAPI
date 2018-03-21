@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>New York Times Search</h1>
+    </header>
+    <main>
+        <div>
+            <h2>Search Parameters</h2>
+            <form role="form">
+                <div>
+                    <h3>Search Term:</h3>
+                    <input id="searchTerm" class="formField" type="text">
+                </div>
+                <div>
+                    <h3>Number of Records</h3>
+                    <label></label>
+                    <input type="radio" id="choice1" class="radioButton" name="searchNumber formField" value="1">
+                    <label for="choice1">1</label>
+                    <input type="radio" id="choice2" class="radioButton" name="searchNumber formField" value="5">
+                    <label for="choice1">5</label>
+                    <input type="radio" id="choice3" class="radioButton" name="searchNumber formField" value="10">
+                    <label for="choice1">10</label>
+                </div>
+                <div>
+                    <h3>Start Year (Optional):</h3>
+                    <input id="startYear" class="formField" type="text">
+                </div>
+                <div>
+                    <h3>End Year (Optional):</h3>
+                    <input id="endYear" class="formField" type="text">
+                </div>
+            </form>
+        </div>
+        <div>
+            <h2>Top Articles</h2>
+            <div id="topArticles">
+                <!-- append articles to this div -->
+            </div>
+        </div>
+    </main>
+    <footer>Made by the best table in the room</footer>
+</body>
+</html>
