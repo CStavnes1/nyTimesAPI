@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Lora" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -50,10 +51,59 @@
             <h2>Top Articles</h2>
             <div id="topArticles">
                 <!-- append articles to this div -->
+                <div class="well" id="article-well-1">
+                    <!-- <h3 class="articleHeadline">
+                        <span class="label label-primary">1</span>
+                        <strong> Trump Rollbacks Target Offshore Rules ‘Written With Human Blood’</strong>
+                    </h3>
+                    <h5>By ERIC LIPTON</h5> -->
+                </div>
             </div>
         </div>
     </main>
-
     <footer>Made by the best table in the room</footer>
+    <script>
+        let searchTerm;
+        let startYear;
+        let endYear;
+        let radio;
+            function myFunction() {
+                searchTerm = $('#searchTerm').val();
+                radio = $('input[name=searchNumber]:checked').val();
+                startYear = $('#startYear').val();
+                endYear = $('#endYear').val();
+                console.log(searchTerm, radio, startYear, endYear)
+                let queryURL = 'http://developer.nytimes.com/proxy/https/api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=e74b17e821394fbcb799dc99ad6d7e75&q=' + searchTerm;
+
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                    }).then(function(response) {
+                        for (let i=0; i < radio; i++){
+                        // console.log(response.response.docs[i].byline.original)
+                        $('.well').append(`<div><h3><span>${i +1} </span>${response.response.docs[i].headline.main} </h3> <h5>${response.response.docs[i].byline.original}</h5> </div>`)
+                        }
+                    });
+                }
+            $('#searchButton').click(myFunction);
+
+        function clear() {
+        $(".well").empty();
+        $(".formField").empty();
+            };
+
+        $("#clearButton").on("click", clear);
+
+    // search term:
+    // number of records to receive:
+    // start year(opt)
+    // end year (opt)
+    // search
+    // let searchQuery = searchTerm;
+    // console.log(searchQuery)
+    
+    
+
+    </script>
 </body>
 </html>
