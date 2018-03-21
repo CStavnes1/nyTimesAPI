@@ -7,17 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="target"></div>
+        <div>
+                <h3>Search Term:</h3>
+                <input id="searchTerm" class="formField" type="text">
+            </div>
+            <div>
+                <h3>Number of Records</h3>
+                <label></label>
+                <input type="radio" id="choice1" class="radioButton" name="searchNumber" value="1">
+                <label for="choice1">1</label>
+                <input type="radio" id="choice2" class="radioButton" name="searchNumber" value="5">
+                <label for="choice1">5</label>
+                <input type="radio" id="choice3" class="radioButton" name="searchNumber" value="10">
+                <label for="choice1">10</label>
+            </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
     // search term:
     // number of records to receive:
     // start year(opt)
     // end year (opt)
     // search
-    let searchTerm = 'obama';
-    //console.log(searchTerm)
+    let searchTerm = $('#searchTerm').val();
+    console.log(searchTerm)
     
     let queryURL = 'http://developer.nytimes.com/proxy/https/api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=e74b17e821394fbcb799dc99ad6d7e75&q=' + searchTerm;
     
@@ -25,14 +39,14 @@
         url: queryURL,
         method: "GET"
         }).then(function(response) {
-            console.log(response.response.docs[0].headline.main)
-            $('#target').text(response.response.docs[0].headline.main)
-            });
+            console.log(response)
+            for (let i=0; i < 5; i++){
+            console.log(response.response.docs[i].headline.main)
+            $('#target').append(`<div> ${response.response.docs[i].headline.main} </div>`)
+            }
+        });
     
     </script>
-
-
-
 
 </script>
     
